@@ -1,12 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'maven'
+    }
+    
+  }
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        node(label: 'maven') {
-          sh 'mvn package'
-        }
-        
+        sh 'mvn package'
       }
     }
   }
